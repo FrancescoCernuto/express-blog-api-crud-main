@@ -44,6 +44,11 @@ function create(function create(req, res) {
     err.status = 400;
     throw err;
   }
+  if (!newPost.immagine) {
+    const err = new Error("Invalid Image");
+    err.status = 400;
+    throw err;
+  }
 
 function update(req, res) {
   id = parseInt(req.params.id);
