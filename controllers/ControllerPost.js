@@ -38,7 +38,12 @@ function create(function create(req, res) {
     err.status = 400;
     throw err;
   }
-  
+
+  if (!newPost.contenuto) {
+    const err = new Error("Invalid Content");
+    err.status = 400;
+    throw err;
+  }
 
 function update(req, res) {
   id = parseInt(req.params.id);
