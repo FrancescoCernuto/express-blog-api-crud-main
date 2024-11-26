@@ -55,6 +55,9 @@ function create(function create(req, res) {
     err.status = 400;
     throw err;
   }
+  posts.push(newPost);
+  res.sendStatus(201);
+}
 
 function update(req, res) {
   id = parseInt(req.params.id);
