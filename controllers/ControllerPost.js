@@ -33,6 +33,13 @@ function create(function create(req, res) {
   };
   newPost.id = 42;
 
+  if (!newPost.titolo) {
+    const err = new Error("Invalid Title");
+    err.status = 400;
+    throw err;
+  }
+  
+
 function update(req, res) {
   id = parseInt(req.params.id);
   if (isNaN(id)) {
