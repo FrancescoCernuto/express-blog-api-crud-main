@@ -50,6 +50,12 @@ function create(function create(req, res) {
     throw err;
   }
 
+  if (!newPost.tags?.length) {
+    const err = new Error("Invalid Tags");
+    err.status = 400;
+    throw err;
+  }
+
 function update(req, res) {
   id = parseInt(req.params.id);
   if (isNaN(id)) {
