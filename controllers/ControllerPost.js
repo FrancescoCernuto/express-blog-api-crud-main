@@ -8,4 +8,12 @@ function index(req, res) {
         return validPosts;
     });
     validPosts.length > 0 ? res.json(validPosts) : res.json(posts);
-} 
+}
+
+function show(req, res) {
+    id = parseInt(req.params.id);
+    if (isNaN(id)) {
+        const err = new Error("Invalid ID");
+        err.status = 400;
+        throw err;
+    }
