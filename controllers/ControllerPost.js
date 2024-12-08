@@ -60,3 +60,10 @@ function create(req, res) {
     res.sendStatus(201);
 }
 
+function update(req, res) {
+    const newPost = {
+        titolo: req.body.titolo,
+        contenuto: req.body.contenuto,
+        immagine: req.body.immagine,
+        tags: req.body.tags,
+    };
