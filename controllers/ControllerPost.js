@@ -34,3 +34,29 @@ function create(req, res) {
         immagine: req.body.immagine,
         tags: req.body.tags,
     };
+
+    if (!newPost.titolo) {
+        const err = new Error("Invalid Title");
+        err.status = 400;
+        throw err;
+    }
+    if (!newPost.contenuto) {
+        const err = new Error("Invalid Content");
+        err.status = 400;
+        throw err;
+    }
+    if (!newPost.immagine) {
+        const err = new Error("Invalid Image");
+        err.status = 400;
+        throw err;
+    }
+    if (!newPost.tags?.length) {
+        const err = new Error("Invalid Tags");
+        err.status = 400;
+        throw err;
+    }
+
+    posts.push(newPost);
+    res.sendStatus(201);
+}
+
