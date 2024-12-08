@@ -26,3 +26,11 @@ function show(req, res) {
     }
     res.json(selectedPost);
 }
+
+function create(req, res) {
+    const newPost = {
+        titolo: req.body.titolo,
+        contenuto: req.body.contenuto,
+        immagine: req.body.immagine,
+        tags: req.body.tags,
+    };
