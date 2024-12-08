@@ -67,3 +67,10 @@ function update(req, res) {
         immagine: req.body.immagine,
         tags: req.body.tags,
     };
+
+    id = parseInt(req.params.id);
+    if (isNaN(id)) {
+        const err = new Error("Invalid ID");
+        err.status = 400;
+        throw err;
+    }
