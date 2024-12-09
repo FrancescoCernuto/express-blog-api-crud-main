@@ -74,3 +74,9 @@ function update(req, res) {
         err.status = 400;
         throw err;
     }
+
+    const selectedPost = posts.find((post) => post.id === id);
+    if (!selectedPost) {
+        const err = new Error("Post Not Found");
+        err.status = 404;
+        throw err;
