@@ -80,3 +80,8 @@ function update(req, res) {
         const err = new Error("Post Not Found");
         err.status = 404;
         throw err;
+    }
+
+    if (!newPost.titolo) return res.status(400).json({ error: "Invalid Title" });
+    if (!newPost.contenuto)
+        return res.status(400).json({ error: "Invalid Content" });
