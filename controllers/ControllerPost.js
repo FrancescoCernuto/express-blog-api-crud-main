@@ -89,3 +89,12 @@ function update(req, res) {
         return res.status(400).json({ error: "Invalid Image" });
     if (!newPost.tags?.length)
         return res.status(400).json({ error: "Invalid Tags" });
+
+    selectedPost.titolo = newPost.titolo;
+    selectedPost.contenuto = newPost.contenuto;
+    selectedPost.immagine = newPost.immagine;
+    selectedPost.tags = newPost.tags;
+
+    console.log(posts);
+
+}
